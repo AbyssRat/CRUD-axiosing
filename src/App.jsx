@@ -78,7 +78,7 @@ function App() {
 
   return (
     <>
-      <h1>CRUD w axios</h1>
+      <h1>axiosing so hard rn</h1>
       <button onClick={getData}>get data</button>
       <button onClick={postData}>post data</button>
       <button onClick={() => putData(18)}>put data</button>
