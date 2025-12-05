@@ -18,20 +18,40 @@ function App() {
   }
 
   const postData = async () => {
-    try {
-      const newData = { name: 'New Item', value: 100 };
-      const response = await axios.post(baseurl, newData);
-      console.log('Data posted:', response.data);
-      getData(); // Refresh data
-    } catch (error) {
-      console.error('Error posting data:', error);
-    }
+      const newData = { 
+        "Lakohely": "Lordran, Firelink Shrine",
+        "Munkakor": "Dark Soulser",
+        "TeljesNev": "John Darksoul",
+       };
+       const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      try {
+        const response = await axios.post(baseurl, newData, config);
+        console.log('Data posted:', response.data);
+        getData(); // Refresh data
+      } catch (error) {
+        console.error('Error posting data:', error);
+      }
+
+      
   }
 
   const putData = async (id) => {
+    const updatedData = { 
+      "Lakohely": "Lands Between, Roundtable Hold",
+      "Munkakor": "Elden Ringer",
+      "TeljesNev": "John Eldenring",
+     };
+     const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
     try {
-      const updatedData = { name: 'Updated Item', value: 200 };
-      const response = await axios.put(`${baseurl}/${id}`, updatedData);
+      const response = await axios.put(`${baseurl}/${id}`, updatedData, config);
       console.log('Data updated:', response.data);
       getData(); // Refresh data
     } catch (error) {
@@ -48,8 +68,6 @@ function App() {
       console.error('Error deleting data:', error);
     }
   }
-
-  
 
   return (
     <>
