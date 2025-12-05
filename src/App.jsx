@@ -1,10 +1,17 @@
 import './App.css'
 import axios from 'axios'
+import { use } from 'react';
 import { useState, useEffect } from 'react'
 
 function App() {
-  const baseurl = 'https://retoolapi.dev/yEtUV8/data';
   const [data, setData] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const baseurl = 'https://retoolapi.dev/yEtUV8/data';
+
+  
   
 
   const getData = async () => {
@@ -72,10 +79,10 @@ function App() {
   return (
     <>
       <h1>CRUD w axios</h1>
-      <button>get data</button>
-      <button>post data</button>
-      <button>put data</button>
-      <button>delete data</button>
+      <button onClick={getData}>get data</button>
+      <button onClick={postData}>post data</button>
+      <button onClick={() => putData(18)}>put data</button>
+      <button onClick={() => deleteData(20)}>delete data</button>
     </>
   )
 }
